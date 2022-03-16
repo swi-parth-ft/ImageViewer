@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker.delegate = self
+        self.imagePicker.dataSource = self
         // Do any additional setup after loading the view.
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -22,11 +24,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       // return 5
         print(manager.getImageList().count)
         return manager.getImageList().count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       // return "5"
         print(manager.getImageList()[row].imageName)
         return manager.getImageList()[row].imageName
     }
@@ -52,7 +56,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let apvc = segue.destination as!UrlImageViewController
+        let apvc = segue.destination as!OptionsViewController
         apvc.delegate = self
     }
 

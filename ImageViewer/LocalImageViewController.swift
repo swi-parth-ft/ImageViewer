@@ -9,6 +9,7 @@ import UIKit
 
 class LocalImageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
+    @IBOutlet weak var imagePreview: UIImageView!
     var newImage: image!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
             print(fileUrl.lastPathComponent)
         if let i = info[.originalImage] as? UIImage{
         newImage = image(a: "Local Image", b: i)
+            imagePreview.image = i
             
         }
         dismiss(animated: true, completion: nil)
@@ -37,6 +39,7 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         delegate?.controllerDidFinishWithNewPicture(p: newImage)
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func CancelButtonClicked(_ sender: Any) {
         delegate?.controllerDidCancel()
