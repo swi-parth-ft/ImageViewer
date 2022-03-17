@@ -25,8 +25,20 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
         c.delegate = self
         present(c, animated: true, completion: nil)
     }
+    @IBAction func TakePhotoClicked(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                var imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                imagePicker.allowsEditing = false
+                
+                present(imagePicker, animated: true, completion: nil)
+            }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
         guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
             print(fileUrl.lastPathComponent)
         if let i = info[.originalImage] as? UIImage{
@@ -34,16 +46,20 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
             imagePreview.image = i
             
         }
+        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         delegate?.controllerDidFinishWithNewPicture(p: newImage)
+        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func CancelButtonClicked(_ sender: Any) {
         delegate?.controllerDidCancel()
         dismiss(animated: true, completion: nil)
     }
+    
 
 }
+
