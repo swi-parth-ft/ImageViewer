@@ -29,7 +29,7 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 var imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                imagePicker.sourceType = UIImagePickerController.SourceType.camera
                 imagePicker.allowsEditing = false
                 
                 present(imagePicker, animated: true, completion: nil)
@@ -43,7 +43,7 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
             print(fileUrl.lastPathComponent)
         if let i = info[.originalImage] as? UIImage{
         newImage = image(a: "Local Image", b: i)
-            imagePreview.image = i
+        imagePreview.image = i
             
         }
         

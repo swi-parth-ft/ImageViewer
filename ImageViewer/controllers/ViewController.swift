@@ -39,10 +39,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let queue = DispatchQueue.init(label: "1")
         queue.async {
-            let resImg =  self.manager.getImageList()[row].images
+            let resultImage =  self.manager.getImageList()[row].images
             DispatchQueue.main.async {
                 
-                self.imageView.image = resImg
+                self.imageView.image = resultImage
             }
         }
     }
