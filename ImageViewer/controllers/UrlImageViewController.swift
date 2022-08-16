@@ -26,11 +26,12 @@ class UrlImageViewController: UIViewController, UIImagePickerControllerDelegate 
         if let imageName = imageName.text{
             if let imageUrl = imageURL.text{
                 if !imageName.isEmpty && !imageUrl.isEmpty{
+                    
                     let data = try? Data(contentsOf: URL(string: imageUrl)!)
                     var img = UIImage(data: data!)!
                     let newImage = image(a: imageName, b: img)
                     delegate?.controllerDidFinishWithNewPicture(p: newImage)
-                    
+                    performSegue(withIdentifier: "unwind", sender: self)
                     dismiss(animated: true, completion: nil)
                 }
             }
@@ -40,6 +41,7 @@ class UrlImageViewController: UIViewController, UIImagePickerControllerDelegate 
 
     @IBAction func CalcelButtonClicked(_ sender: Any) {
         delegate?.controllerDidCancel()
+        performSegue(withIdentifier: "unwind", sender: self)
         dismiss(animated: true, completion: nil)
     }
 

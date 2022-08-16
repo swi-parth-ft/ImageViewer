@@ -175,9 +175,11 @@
                     <navigationItem key="navigationItem" title="Title" id="bDr-5s-b5l"/>
                     <connections>
                         <outlet property="imagePreview" destination="b71-9i-AEP" id="dRw-da-ikD"/>
+                        <segue destination="xwI-yx-q4O" kind="unwind" identifier="unwind1" animates="NO" unwindAction="unwindToRootViewControllerWithSegue:" id="eKU-Tj-1vO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vas-ju-scX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xwI-yx-q4O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2686.9565217391305" y="363.61607142857139"/>
         </scene>
@@ -235,9 +237,11 @@
                     <connections>
                         <outlet property="imageName" destination="kOH-Gd-e8W" id="4GQ-J4-ps2"/>
                         <outlet property="imageURL" destination="mlN-hu-hm6" id="Abd-OK-lha"/>
+                        <segue destination="4dM-8M-Gy0" kind="unwind" identifier="unwind" animates="NO" unwindAction="unwindToRootViewControllerWithSegue:" id="qY3-wy-8lw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1m-CB-40h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="4dM-8M-Gy0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2687" y="-301"/>
         </scene>

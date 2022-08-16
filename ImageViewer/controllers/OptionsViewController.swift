@@ -9,14 +9,7 @@ import UIKit
 
 class OptionsViewController: UIViewController, MiddleProtocol {
     var delegate:MiddleProtocol?
-    func controllerDidFinishWithNewPicture(p: image) {
-        delegate?.controllerDidFinishWithNewPicture(p: p)
-       
-    }
-
-    func controllerDidCancel() {
-
-    }
+  
     
 
  
@@ -25,7 +18,15 @@ class OptionsViewController: UIViewController, MiddleProtocol {
        
         // Do any additional setup after loading the view.
     }
-    
+    func controllerDidFinishWithNewPicture(p: image) {
+        delegate?.controllerDidFinishWithNewPicture(p: p)
+        dismiss(animated: true, completion: nil)
+    }
+
+    func controllerDidCancel() {
+        
+        dismiss(animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "url"){
         let apvc = segue.destination as!UrlImageViewController

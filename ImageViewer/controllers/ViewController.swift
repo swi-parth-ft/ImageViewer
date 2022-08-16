@@ -59,6 +59,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let apvc = segue.destination as!OptionsViewController
         apvc.delegate = self
     }
+    @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
+        print("Unwind to Root View Controller")
+    }
 
 }
 

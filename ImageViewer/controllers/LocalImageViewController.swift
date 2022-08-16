@@ -52,11 +52,12 @@ class LocalImageViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         delegate?.controllerDidFinishWithNewPicture(p: newImage)
-        navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "unwind1", sender: self)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func CancelButtonClicked(_ sender: Any) {
         delegate?.controllerDidCancel()
+        performSegue(withIdentifier: "unwind1", sender: self)
         dismiss(animated: true, completion: nil)
     }
     
